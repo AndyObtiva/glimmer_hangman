@@ -1,8 +1,10 @@
-# Hangman The Game 1.0.0
+# <img alt="Glimmer Hangman Icon" src="https://raw.githubusercontent.com/AndyObtiva/glimmer_hangman/master/icons/linux/Glimmer%20Hangman.png" height=85 /> Glimmer Hangman 1.0.0
 ## [<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer/master/images/glimmer-logo-hi-res.png" height=40 /> Glimmer DSL for LibUI Application](https://github.com/AndyObtiva/glimmer-dsl-libui)
-[![Gem Version](https://badge.fury.io/rb/glimmer_hangman.svg)](http://badge.fury.io/rb/glimmer_snake)
+[![Gem Version](https://badge.fury.io/rb/glimmer_hangman.svg)](http://badge.fury.io/rb/glimmer_hangman)
 
-Hangman word game that runs on Mac, Windows, and Linux. Built with [Ruby](https://www.ruby-lang.org/) and [Glimmer DSL for LibUI](https://github.com/AndyObtiva/glimmer-dsl-libui) (Prerequisite-Free Ruby Desktop Development Cross-Platform Native GUI Library) using [Application Scaffolding](https://github.com/AndyObtiva/glimmer-dsl-libui#scaffold-application). Implementation started at the RubyConf 2024 Hack Day Event for Glimmer DSL for LibUI, which was connected to the workshop "How To Build Basic Desktop Applications in Ruby".
+Hangman (word game) that runs on Mac, Windows, and Linux. Built with [Ruby](https://www.ruby-lang.org/) and [Glimmer DSL for LibUI](https://github.com/AndyObtiva/glimmer-dsl-libui) (Prerequisite-Free Ruby Desktop Development Cross-Platform Native GUI Library) using [Application Scaffolding](https://github.com/AndyObtiva/glimmer-dsl-libui#scaffold-application).
+
+Implementation started at the RubyConf 2024 Hack Day Event for Glimmer DSL for LibUI, which was connected to the [RubyConf 2024 workshop "How To Build Basic Desktop Applications in Ruby"](https://github.com/AndyObtiva/how-to-build-desktop-applications-in-ruby/tree/rubyconf2024).
 
 ![glimmer-dsl-libui-mac-hangman.gif](/screenshots/glimmer-dsl-libui-mac-hangman.gif)
 
@@ -123,4 +125,4 @@ Copyright (c) 2024 Andy Maleh. See
 
 [<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer/master/images/glimmer-logo-hi-res.png" height=40 />](https://github.com/AndyObtiva/glimmer) Built with [Glimmer DSL for LibUI](https://github.com/AndyObtiva/glimmer-dsl-libui) (Prerequisite-Free Ruby Desktop Development Cross-Platform Native GUI Library)
 
-Glimmer Snake icon made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+Glimmer Hangman icon made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
