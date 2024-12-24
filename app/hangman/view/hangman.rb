@@ -1,6 +1,7 @@
 require 'hangman/model/game'
 
 require 'hangman/view/hangman_scene'
+require 'hangman/view/hangman_guess'
 
 class Hangman
   module View
@@ -22,6 +23,7 @@ class Hangman
           
           area {
             hangman_scene(game: @game, size: SIZE)
+            hangman_guess(game: @game, size: SIZE)
           }
         }
       }

@@ -52,21 +52,5 @@ class HangmanScene
     @right_leg = line(size*0.6, size*0.5, size*0.7, size*0.6) {
       stroke :black, thickness: thickness
     }
-    
-    text(size*0.1, size*0.8, size*0.8) {
-      default_font family: 'Courier New', size: 24
-      
-      content(game, :guess) do
-        game.guess.chars.each do |letter|
-          rendered_letter = letter == ' ' ? '_' : letter
-          string(rendered_letter) {
-            color :black
-          }
-          string(' ') {
-            color :black
-          }
-        end
-      end
-    }
   }
 end

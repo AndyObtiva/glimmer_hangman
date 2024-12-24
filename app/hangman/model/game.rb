@@ -1,15 +1,15 @@
 class Hangman
   module Model
     class Game
-      attr_accessor :word_to_guess, :guess
+      attr_accessor :word, :guess
       
       def initialize
         restart
       end
       
       def restart
-        self.word_to_guess = 'MAGNIFICANT'
-        self.guess = ' ' * self.word_to_guess.size
+        self.word = 'MAGNIFICANT'
+        self.guess = ' ' * self.word.size
       end
     end
   end
