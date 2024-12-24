@@ -1,14 +1,17 @@
 class Hangman
   module Model
     class Game
+      WORDS_FILE_PATH = File.join(APP_ROOT, './config/words.txt')
+    
       attr_accessor :word, :guess
       
       def initialize
+        load_words
         restart
       end
       
       def restart
-        self.word = 'magnificent'
+        self.word = select_random_word
         self.guess = ' ' * self.word.size
       end
       
@@ -22,6 +25,22 @@ class Hangman
           end
           self.guess = new_guess
         end
+      end
+      
+      private
+      
+      def load_words
+        @words = File.read(WORDS_FILE_PATH).lines.map(&:chomp).map(&:downcase)
+      end
+      
+      def select_random_word
+        shuffle_word_indexes if @word_indexes.nil? || @word_indexes.empty?
+        word_index = @word_indexes.pop
+        @words[word_index]
+      end
+      
+      def shuffle_word_indexes
+        @word_indexes = @words.size.times.to_a.shuffle
       end
     end
   end
