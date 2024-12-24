@@ -1,4 +1,4 @@
-require 'hangman/model/greeting'
+require 'hangman/model/game'
 
 require 'hangman/view/hangman_scene'
 
@@ -9,32 +9,13 @@ class Hangman
     
       SIZE = 480
           
-      ## Add options like the following to configure CustomWindow by outside consumers
-      #
-      # options :title, :background_color
-      # option :width, default: 320
-      # option :height, default: 240
-  
-      ## Use before_body block to pre-initialize variables to use in body and
-      #  to setup application menu
-      #
       before_body do
-        @greeting = Model::Greeting.new
+        @game = Model::Game.new
         menu_bar
       end
   
-      ## Use after_body block to setup observers for controls in body
-      #
-      # after_body do
-      #
-      # end
-  
-      ## Add control content inside custom window body
-      ## Top-most control must be a window or another custom window
-      #
       body {
         window {
-          # Replace example content below with your own custom window content
           content_size SIZE, SIZE
           title 'Hangman'
           
@@ -46,13 +27,12 @@ class Hangman
   
       def menu_bar
         menu('File') {
-          menu_item('Preferences...') {
+          menu_item('Restart') {
             on_clicked do
-              display_preferences_dialog
+              @game.restart
             end
           }
           
-          # Enables quitting with CMD+Q on Mac with Mac Quit menu item
           quit_menu_item if OS.mac?
         }
         menu('Help') {
@@ -75,30 +55,6 @@ class Hangman
       def display_about_dialog
         message = "Hangman #{VERSION}\n\n#{LICENSE}"
         msg_box('About', message)
-      end
-      
-      def display_preferences_dialog
-        window {
-          title 'Preferences'
-          content_size 200, 100
-          
-          margined true
-          
-          vertical_box {
-            padded true
-            
-            label('Greeting:') {
-              stretchy false
-            }
-            
-            radio_buttons {
-              stretchy false
-              
-              items Model::Greeting::GREETINGS
-              selected <=> [@greeting, :text_index]
-            }
-          }
-        }.show
       end
     end
   end

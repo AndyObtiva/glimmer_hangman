@@ -1,3 +1,5 @@
+require 'hangman/model/game'
+
 class HangmanScene
   include Glimmer::LibUI::CustomShape
 
@@ -50,5 +52,8 @@ class HangmanScene
     @right_leg = line(size*0.6, size*0.5, size*0.7, size*0.6) {
       stroke :black, thickness: thickness
     }
+    
+    # TODO depending on the word, display dashes with different sizes/font-sizes
+    # TODO try to display a standard number of dashes at first, like 10 for words with 10 letters
   }
 end
