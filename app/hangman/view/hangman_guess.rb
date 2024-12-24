@@ -6,10 +6,11 @@ class HangmanGuess
   option :game
   option :size, default: 480
   option :thickness, default: 2
+  option :font_size, default: 33
   
   body {
     text(size*0.1, size*0.8, size*0.8) {
-      default_font family: 'Courier New', size: 24
+      default_font family: 'Courier New', size: font_size
       
       content(game, computed_by: [:guess, :incorrect_guess_count]) do
         game.guess.size.times do |letter_index|

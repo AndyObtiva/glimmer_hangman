@@ -8,8 +8,11 @@ class Hangman
     class Hangman
       include Glimmer::LibUI::Application
     
-      SIZE = 480
       MODIFIER = OS.mac? ? :command : :control
+      
+      option :size, default: 480
+      
+      attr_reader :game
       
       before_body do
         @game = Model::Game.new
@@ -18,21 +21,26 @@ class Hangman
   
       body {
         window {
-          content_size SIZE, SIZE
+          content_size size, size
           title 'Hangman'
           resizable false
           
           area {
-            hangman_scene(game: @game, size: SIZE)
-            hangman_guess(game: @game, size: SIZE)
+            background = rectangle(0, 0, size, size) {
+              fill :white
+            }
+            
+            hangman_scene(game:, size:)
+            
+            hangman_guess(game:, size:)
             
             on_key_down do |event|
               case event
               in {key: 'a'..'z', modifier: nil, modifiers: []}
-                @game.guess_letter(event[:key])
+                game.guess_letter(event[:key])
                 handled = true
               in {key: 'r', modifier: nil, modifiers: [MODIFIER]}
-                @game.restart
+                game.restart
                 handled = true
               else
                 handled = false
@@ -44,10 +52,10 @@ class Hangman
       }
   
       def menu_bar
-        menu('File') {
+        menu('Game') {
           menu_item('Restart') {
             on_clicked do
-              @game.restart
+              game.restart
             end
           }
           
