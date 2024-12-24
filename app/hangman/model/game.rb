@@ -3,7 +3,7 @@ class Hangman
     class Game
       WORDS_FILE_PATH = File.join(APP_ROOT, './config/words.txt')
     
-      attr_accessor :word, :guess, :incorrect_guess_count
+      attr_accessor :word, :guess, :guessed_letters, :incorrect_guess_count
       
       def initialize
         load_words
@@ -14,10 +14,13 @@ class Hangman
         self.word = select_random_word
         self.guess = ' ' * self.word.size
         self.incorrect_guess_count = 0
+        self.guessed_letters = []
       end
       
       def guess_letter(letter)
         letter = letter.to_s.downcase
+        return if guessed_letters.include?(letter)
+        guessed_letters << letter
         if word.include?(letter)
           letter_indexes = word.chars.each_with_index.select {|c, i| c == letter }.map(&:last)
           new_guess = guess.dup
@@ -28,6 +31,18 @@ class Hangman
         else
           self.incorrect_guess_count += 1
         end
+      end
+      
+      def guessed_letter_at_index?(letter_index)
+        guess[letter_index] != ' '
+      end
+      
+      def won?
+        guess.chars.count(' ') == 0
+      end
+      
+      def lost?
+        incorrect_guess_count >= word.size
       end
       
       private

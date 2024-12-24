@@ -11,17 +11,35 @@ class HangmanGuess
     text(size*0.1, size*0.8, size*0.8) {
       default_font family: 'Courier New', size: 24
       
-      content(game, :guess) do
-        game.guess.chars.each do |letter|
-          rendered_letter = letter == ' ' ? '_' : letter.upcase
-          string(rendered_letter) {
-            color :black
+      content(game, computed_by: [:guess, :incorrect_guess_count]) do
+        game.guess.size.times do |letter_index|
+          letter = rendered_letter(letter_index)
+          string(letter) {
+            color string_color(letter_index)
           }
-          string(' ') {
-            color :black
-          }
+          string(' ')
         end
       end
     }
   }
+  
+  def rendered_letter(letter_index)
+    letter = game.lost? ? game.word[letter_index] : game.guess[letter_index]
+    letter = '_' if letter == ' '
+    letter.upcase
+  end
+  
+  def string_color(letter_index)
+    if game.lost?
+      if game.guessed_letter_at_index?(letter_index)
+        :red
+      else
+        :green
+      end
+    elsif game.won?
+      :green
+    else
+     :black
+   end
+  end
 end

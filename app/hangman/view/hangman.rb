@@ -9,6 +9,7 @@ class Hangman
       include Glimmer::LibUI::Application
     
       SIZE = 480
+      MODIFIER = OS.mac? ? :command : :control
       
       before_body do
         @game = Model::Game.new
@@ -29,6 +30,9 @@ class Hangman
               case event
               in {key: 'a'..'z', modifier: nil, modifiers: []}
                 @game.guess_letter(event[:key])
+                handled = true
+              in {key: 'r', modifier: nil, modifiers: [MODIFIER]}
+                @game.restart
                 handled = true
               else
                 handled = false
