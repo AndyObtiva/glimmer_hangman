@@ -9,7 +9,7 @@ class Hangman
       include Glimmer::LibUI::Application
     
       SIZE = 480
-          
+      
       before_body do
         @game = Model::Game.new
         menu_bar
@@ -24,6 +24,17 @@ class Hangman
           area {
             hangman_scene(game: @game, size: SIZE)
             hangman_guess(game: @game, size: SIZE)
+            
+            on_key_down do |event|
+              case event
+              in {key: 'a'..'z', modifier: nil, modifiers: []}
+                @game.guess_letter(event[:key])
+                handled = true
+              else
+                handled = false
+              end
+              handled
+            end
           }
         }
       }
