@@ -32,7 +32,13 @@ or just:
 hangman
 ```
 
-The goal of the game is to guess a word by typing letters on the keyboard one by one, and the user gets 10 guesses to get the word right. As each letter is typed, the word at the bottom reveals more letters if the typed letter is a correct part of the word, or otherwise the drawing at the top shows more parts of the scene of execution by hanging if the typed letter is incorrect. Also, typed letters show up at the bottom of the screen as green (correct) or (red) incorrect. The game is won once the correct word is guessed completely or if the hangman character is fully hung (10 guessed letters are incorrect).
+The goal of the game is to guess a word by typing letters on the keyboard one by one, with 10 guesses max.
+
+As each letter is typed, the word at the bottom reveals more letters if the typed letter is a correct part of the word, or otherwise the drawing at the top shows more parts of the scene of execution by hanging if the typed letter is incorrect. Also, typed letters show up at the bottom of the screen as green (correct) or (red) incorrect. The game is won once the correct word is guessed completely or if the hangman character is fully hung (10 guessed letters are incorrect).
+
+Restart game by:
+- Keyboard Shortcut: CMD+R on Mac or CTRL+R on Windows/Linux
+- Menu Item: Game -> Restart
 
 ## Development
 
