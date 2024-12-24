@@ -19,15 +19,10 @@ class Hangman
       
       def guess_letter(letter)
         letter = letter.to_s.downcase
-        return if guessed_letters.include?(letter)
+        return if guessed_letters.include?(letter) || won? || lost?
         guessed_letters << letter
-        if word.include?(letter)
-          letter_indexes = word.chars.each_with_index.select {|c, i| c == letter }.map(&:last)
-          new_guess = guess.dup
-          letter_indexes.each do |letter_index|
-            new_guess[letter_index] = letter
-          end
-          self.guess = new_guess
+        if correct_guess_letter?(letter)
+          update_guess_with_newly_guessed_letter(letter)
         else
           self.incorrect_guess_count += 1
         end
@@ -35,6 +30,10 @@ class Hangman
       
       def guessed_letter_at_index?(letter_index)
         guess[letter_index] != ' '
+      end
+      
+      def correct_guess_letter?(letter)
+        word.include?(letter)
       end
       
       def won?
@@ -59,6 +58,13 @@ class Hangman
       
       def shuffle_word_indexes
         @word_indexes = @words.size.times.to_a.shuffle
+      end
+      
+      def update_guess_with_newly_guessed_letter(letter)
+        letter_indexes = word.chars.each_with_index.select {|c, i| c == letter }.map(&:last)
+        new_guess = guess.dup
+        letter_indexes.each { |letter_index| new_guess[letter_index] = letter }
+        self.guess = new_guess
       end
     end
   end

@@ -2,6 +2,7 @@ require 'hangman/model/game'
 
 require 'hangman/view/hangman_scene'
 require 'hangman/view/hangman_guess'
+require 'hangman/view/hangman_guessed_letters'
 
 class Hangman
   module View
@@ -31,8 +32,8 @@ class Hangman
             }
             
             hangman_scene(game:, size:)
-            
             hangman_guess(game:, size:)
+            hangman_guessed_letters(game:, size:)
             
             on_key_down do |event|
               case event
