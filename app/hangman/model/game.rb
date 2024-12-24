@@ -3,7 +3,7 @@ class Hangman
     class Game
       WORDS_FILE_PATH = File.join(APP_ROOT, './config/words.txt')
     
-      attr_accessor :word, :guess
+      attr_accessor :word, :guess, :incorrect_guess_count
       
       def initialize
         load_words
@@ -13,6 +13,7 @@ class Hangman
       def restart
         self.word = select_random_word
         self.guess = ' ' * self.word.size
+        self.incorrect_guess_count = 0
       end
       
       def guess_letter(letter)
@@ -24,6 +25,8 @@ class Hangman
             new_guess[letter_index] = letter
           end
           self.guess = new_guess
+        else
+          self.incorrect_guess_count += 1
         end
       end
       
