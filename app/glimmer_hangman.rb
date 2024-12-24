@@ -9,10 +9,10 @@ rescue Exception
   # add more gems if needed
 end
 
-class Hangman
+class GlimmerHangman
   APP_ROOT = File.expand_path('../..', __FILE__)
   VERSION = File.read(File.join(APP_ROOT, 'VERSION'))
   LICENSE = File.read(File.join(APP_ROOT, 'LICENSE.txt'))
 end
 
-require 'hangman/view/hangman'
+require 'glimmer_hangman/view/hangman'

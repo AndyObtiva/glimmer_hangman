@@ -14,17 +14,17 @@ require 'rake'
 require 'juwelier'
 Juwelier::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://guides.rubygems.org/specification-reference/ for more options
-  gem.name = "hangman"
-  gem.homepage = "http://github.com/AndyObtiva/hangman"
+  gem.name = "glimmer_hangman"
+  gem.homepage = "http://github.com/AndyObtiva/glimmer_hangman"
   gem.license = "MIT"
-  gem.summary = %Q{Hangman}
-  gem.description = %Q{Hangman}
+  gem.summary = %Q{Glimmer Hangman}
+  gem.description = %Q{Glimmer Hangman - The Word Game (built with Glimmer DSL for LibUI, partially at the RubyConf 2024 Hack Day event for Glimmer DSL for LibUI)}
   gem.email = "andy.am@gmail.com"
   gem.authors = ["Andy Maleh"]
 
   gem.files = Dir['VERSION', 'LICENSE.txt', 'app/**/*', 'bin/**/*', 'config/**/*', 'db/**/*', 'docs/**/*', 'fonts/**/*', 'icons/**/*', 'images/**/*', 'lib/**/*', 'script/**/*', 'sounds/**/*', 'videos/**/*']
   gem.require_paths = ['lib', 'app']
-  gem.executables = ['hangman']
+  gem.executables = ['hangman', 'glimmer_hangman']
   # dependencies defined in Gemfile
 end
 Juwelier::RubygemsDotOrgTasks.new
@@ -47,7 +47,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "hangman #{version}"
+  rdoc.title = "glimmer_hangman #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end

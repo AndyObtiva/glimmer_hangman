@@ -1,6 +1,6 @@
-require 'hangman/model/game'
+require 'glimmer_hangman/model/game'
 
-class Hangman
+class GlimmerHangman
   module View
     class HangmanGuess
       include Glimmer::LibUI::CustomShape

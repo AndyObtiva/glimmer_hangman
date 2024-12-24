@@ -1,4 +1,4 @@
-class Hangman
+class GlimmerHangman
   module Model
     class Game
       WORDS_FILE_PATH = File.join(APP_ROOT, './config/words.txt')

@@ -1,10 +1,10 @@
-require 'hangman/model/game'
+require 'glimmer_hangman/model/game'
 
-require 'hangman/view/hangman_scene'
-require 'hangman/view/hangman_guess'
-require 'hangman/view/hangman_guessed_letters'
+require 'glimmer_hangman/view/hangman_scene'
+require 'glimmer_hangman/view/hangman_guess'
+require 'glimmer_hangman/view/hangman_guessed_letters'
 
-class Hangman
+class GlimmerHangman
   module View
     class Hangman
       include Glimmer::LibUI::Application
