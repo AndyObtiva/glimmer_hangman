@@ -18,9 +18,10 @@ class Hangman
         window {
           content_size SIZE, SIZE
           title 'Hangman'
+          resizable false
           
           area {
-            hangman_scene(size: SIZE)
+            hangman_scene(game: @game, size: SIZE)
           }
         }
       }

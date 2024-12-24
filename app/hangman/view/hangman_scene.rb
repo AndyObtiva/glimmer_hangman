@@ -53,7 +53,20 @@ class HangmanScene
       stroke :black, thickness: thickness
     }
     
-    # TODO depending on the word, display dashes with different sizes/font-sizes
-    # TODO try to display a standard number of dashes at first, like 10 for words with 10 letters
+    text(size*0.1, size*0.8, size*0.8) {
+      default_font family: 'Courier New', size: 24
+      
+      content(game, :guess) do
+        game.guess.chars.each do |letter|
+          rendered_letter = letter == ' ' ? '_' : letter
+          string(rendered_letter) {
+            color :black
+          }
+          string(' ') {
+            color :black
+          }
+        end
+      end
+    }
   }
 end
