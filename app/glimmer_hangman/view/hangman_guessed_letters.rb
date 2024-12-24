@@ -8,7 +8,7 @@ class GlimmerHangman
       option :game
       option :size, default: 480
       option :thickness, default: 2
-      option :font_size, default: 19
+      option :font_size, default: 17
       
       body {
         text(size*0.1, size*0.9, size*0.8) {
