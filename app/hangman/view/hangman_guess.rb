@@ -33,13 +33,7 @@ class Hangman
       end
       
       def string_color(letter_index)
-        if game.lost?
-          if game.guessed_letter_at_index?(letter_index)
-            :red
-          else
-            :green
-          end
-        elsif game.won?
+        if game.lost? && !game.guessed_letter_at_index?(letter_index)
           :green
         else
          :black
