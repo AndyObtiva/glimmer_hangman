@@ -26,6 +26,8 @@ class GlimmerHangman
         }
       }
       
+      private
+      
       def rendered_letter(letter_index)
         letter = game.lost? ? game.word[letter_index] : game.guess[letter_index]
         letter = '_' if letter == ' '

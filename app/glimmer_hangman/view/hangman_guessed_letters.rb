@@ -25,6 +25,8 @@ class GlimmerHangman
         }
       }
       
+      private
+      
       def string_color(letter)
         game.correct_guess_letter?(letter) ? :green : :red
       end

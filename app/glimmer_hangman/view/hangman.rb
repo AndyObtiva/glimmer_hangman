@@ -51,6 +51,8 @@ class GlimmerHangman
           }
         }
       }
+      
+      private
   
       def menu_bar
         menu('Game') {
